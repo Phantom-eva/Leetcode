@@ -8,17 +8,22 @@
 class Solution {
 public:
     bool isPalindrome(int x) {
-        using namespace std;
-        if(x<0) return false;
-        else{
-            long int temp_x = 0;
-            long int flag_x = x;
-            while(x){
-                temp_x = temp_x*10 + x%10;
-                x = x / 10;
-            }
-            if (temp_x == flag_x) return true;
-            else return false;
+        if (x < 0){
+            return false;
+        }
+        int temp1, temp2;
+        long int ans = 0;
+        temp1 = x;
+        while(temp1 != 0){
+            temp2 = temp1 % 10;
+            ans = ans*10 + temp2;
+            temp1 /= 10;
+        }
+        if (ans == x) {
+            return true;
+        }
+        else {
+            return false;
         }
     }
 };
